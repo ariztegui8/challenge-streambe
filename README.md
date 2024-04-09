@@ -1,8 +1,19 @@
-# React + Vite
+Challenge para Streambe creado por Jorge Ariztegui.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Descripcion de la Aplicación:
+Esta aplicación es un sistema de login y dashboard que permite a los usuarios registrarse con cualquier nombre y contraseña. Una vez registrado, se almacena un token de autenticación en el local storage del navegador. El dashboard muestra una tabla de usuarios extraídos de una Api.
 
-Currently, two official plugins are available:
+Características:
+Los usuarios pueden registrarse con cualquier nombre y contraseña.
+Se muestra una alerta si no se completan todos los campos requeridos durante el login.
+Se utiliza un token de autenticación obtenido de https://www.mockachino.com/06c67c77-18c4-45/login y se almacena en el local storage.
+La ruta del dashboard está protegida y solo se puede acceder si hay un token de autenticación válido.
+El dashboard muestra una tabla con los usuarios extraídos de https://www.mockachino.com/06c67c77-18c4-45/users.
+Los usuarios pueden cerrar sesión, lo que elimina el token de autenticación y los redirige al login.
+Se utilizó Tailwind y DaisyUI para los estilos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+Guia de Uso:
+Instala las dependencias utilizando npm install.
+Ejecuta la app utilizando npm run dev.
+Abri tu navegador y anda a http://localhost:5173/ para acceder al home.

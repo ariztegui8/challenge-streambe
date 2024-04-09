@@ -1,14 +1,17 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, setNameUser }) => {
 
     const [form, setForm] = useState({
         username: '',
         password: ''
     })
     const [error, setError] = useState(false)
+
+    const navigate = useNavigate()
 
     const { username, password } = form
 
@@ -36,12 +39,26 @@ const Login = ({ setToken }) => {
                     password
                 }
             );
-            const { access_token } = response.data
+            const { access_token, name } = response.data
             setToken(access_token)
+            setNameUser(name)
+
+            localStorage.setItem("token", access_token)
+            navigate("/dashboard")
+            setToken(access_token);
         } catch (error) {
-            console.error("Error de autenticación:", error)
+            console.error(error)
         }
     }
+
+    
+
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        if (token) {
+            setToken(token)
+        }
+    }, []);
 
     return (
         <div className="flex justify-center items-center h-screen">
